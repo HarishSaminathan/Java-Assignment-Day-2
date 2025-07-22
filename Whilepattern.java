@@ -1,14 +1,31 @@
-public class WhilePattern {
+public class DiamondPatt {
     public static void main(String[] args) {
-        int row = 1, num = 1, count = 1;
+        int r = 3, i = 1, num = 1;
 
-        while (row++ <= 5) {
-            int i = 0;
-            while (i++ < count) System.out.print(num++ + " ");
-            i = 0;
-            while (i++ < count) System.out.print("w ");
+        // Upper half including middle
+        while (i <= r) {
+            int space = r - i;
+            while (space-- > 0) System.out.print("  ");
+
+            int j = 1;
+            while (j++ <= i) System.out.print(num++ + "   ");
+
             System.out.println();
-            count += (row <= 3) ? 1 : -1;
+            i++;
+        }
+
+        // Lower half
+        i = r - 1;
+        while (i >= 1) {
+            int space = r - i;
+            while (space-- > 0) System.out.print("  ");
+
+            int j = 1;
+            while (j++ <= i) System.out.print(num++ + "   ");
+
+            System.out.println();
+            i--;
         }
     }
 }
+
